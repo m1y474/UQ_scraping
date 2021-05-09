@@ -14,14 +14,12 @@ time.sleep(1)  # jsの描画待ち
 search_strings = driver.find_elements_by_css_selector(
     'h3.uqv2-parts-text--lg.uqv2-parts-bold')
 
-
 def has_torque_5g():
     for tag in search_strings:
         target_upper = tag.text.upper()
         if target_upper in 'TORQUE G05' or target_upper in 'TORQUE 5G' or target_upper in 'TORQUE 5G KYG01':
             return True
         return False
-
 
 result = 'TORQUE 5GはまだUQモバイルの対象機種ではありません。'
 if (has_torque_5g()):
