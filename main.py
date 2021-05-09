@@ -34,12 +34,15 @@ smtp_obj.ehlo()
 smtp_obj.starttls()
 smtp_obj.ehlo()
 
-# smtp_obj.login(username, password)
+EMAIL=''
+PASSWORD=''
+TO_EMAIL='rm.eilsystem@gmail.com'
+smtp_obj.login(EMAIL, PASSWORD)
 
 msg = MIMEText(result)
 msg['Subject'] = 'UQモバイルのTORQUE対応状況'
 msg['From'] = 'from@example.jp'
-msg['To'] = 'rm.eilsystem@gmail.com'
+msg['To'] = TO_EMAIL
 msg['Date'] = formatdate()
 
 smtp_obj.sendmail(msg['From'], msg['To'], msg.as_string())
