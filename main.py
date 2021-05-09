@@ -53,7 +53,7 @@ driver.get(url)
 time.sleep(1)  # jsの描画待ち
 
 # element[s]であることに注意
-search_strings = driver.find_elements_by_css_selector('h3.uqv2-parts-text--lg.uqv2-parts-bold')
+search_strings = driver.find_elements_by_css_selector('h3.uqv2-parts-text--lg.uqv2-parts-bold span')
 
 def has_torque_5g():
     if len(search_strings) == 0:
