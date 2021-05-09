@@ -43,7 +43,7 @@ if requests.get(url).status_code != 200:
 # WebDriverのインスタンスを生成
 driver = webdriver.Chrome(executable_path='/Users/miyata/dev/UQ_scraping/chromedriver')
 
-time.sleep(1) # ステータスコードの確認から1秒待機
+time.sleep(1)  # ステータスコードの確認から1秒待機
 
 driver.get(url)
 time.sleep(1)  # jsの描画待ち
