@@ -4,6 +4,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.utils import formatdate
 import requests
+from selenium.webdriver.chrome.options import Options
 
 url = 'https://www.uqwimax.jp/mobile/products/sim/devices/'
 result = 'TORQUE 5GはまだUQモバイルの対象機種ではありません。'
@@ -40,8 +41,11 @@ if requests.get(url).status_code != 200:
     send_email('スクレイピング対象サイトのレスポンスが変更されました。対象サイトを確認してください。\n{}'.format(url))
     exit()
 
+# バックグラウンドで実施するためのオプション
+opt = Options()
+opt.add_argument('--headless')
 # WebDriverのインスタンスを生成
-driver = webdriver.Chrome(executable_path='/Users/miyata/dev/UQ_scraping/chromedriver')
+driver = webdriver.Chrome(executable_path='/Users/miyata/dev/UQ_scraping/chromedriver', options=opt)
 
 time.sleep(1)  # ステータスコードの確認から1秒待機
 
